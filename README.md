@@ -35,7 +35,7 @@ npm install
 3. Inicie a aplicação:
 
 ```bash
-npm start
+node index.js
 ```
 
 > A API estará disponível em: `http://localhost:3000`
