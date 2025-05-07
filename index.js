@@ -11,7 +11,18 @@ let livros = [
 
 app.get('/livros', (req, res) => {
     res.json(livros);
-})
+});
+
+app.post('/livro', (req, res) => {
+    const { titulo, autor } = req.body;
+    const novoLivro = {
+        id: livros.length + 1,
+        titulo,
+        autor
+    };
+    livros.push(novoLivro);
+    res.status(201).json(novoLivro);
+});
 
 app.listen(PORT, () => {
     console.log(`Serviço rodando em http://localhost:${PORT}`);
