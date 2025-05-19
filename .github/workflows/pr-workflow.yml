@@ -1,4 +1,4 @@
-name: Node.js PR Workflow
+name: Pull Request Workflow - Node.js
 
 on:
   pull_request:
@@ -6,17 +6,24 @@ on:
       - main
 
 jobs:
-  pr-check:
+  build-run:
     runs-on: ubuntu-latest
+    timeout-minutes: 1
 
     steps:
-      - name: Checkout código
+      - name: Clonar repositório
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Trocar para a branch 'feature/listar-livros'
+        run: git fetch origin feature/listar-livros && git checkout feature/listar-livros
+
+      - name: Instalar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
       - name: Instalar dependências
         run: npm install
+
+      - name: Executar projeto
+        run: node index.js
