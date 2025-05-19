@@ -8,7 +8,6 @@ on:
 jobs:
   build-run:
     runs-on: ubuntu-latest
-    timeout-minutes: 1
 
     steps:
       - name: Clonar repositório
@@ -25,5 +24,8 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      - name: Executar projeto
-        run: node index.js
+      - name: Executar projeto por 10 segundos
+        run: |
+          node index.js &
+          sleep 10
+          pkill node
