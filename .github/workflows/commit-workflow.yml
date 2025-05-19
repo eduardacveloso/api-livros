@@ -8,6 +8,7 @@ on:
 jobs:
   build-run:
     runs-on: ubuntu-latest
+    timeout-minutes: 1
 
     steps:
       - name: Clonar repositório
