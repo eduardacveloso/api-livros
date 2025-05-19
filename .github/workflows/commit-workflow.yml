@@ -22,7 +22,7 @@ jobs:
           node-version: '18'
 
       - name: Instalar dependências
-        run: npm install
+        run: node index.js
 
       - name: Executar projeto
         run: npm start
